@@ -2,6 +2,8 @@ theme = 'hyde'
 baseURL = "https://pop-ecx.github.io/"
 languageCode = "en-us"
 title = "pop-ecx"
+relativeURLs = true
+canonifyURLs = true
 [params]
   description = "Break, Comprehend, Build"
   github = "https://github.com/pop-ecx"
