@@ -1,10 +1,5 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>pop-ecx</title>
-    <link>https://pop-ecx.github.io/</link>
-    <description>Recent content on pop-ecx</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="https://pop-ecx.github.io/index.xml" rel="self" type="application/rss+xml" />
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>pop-ecx</title><link>https://pop-ecx.github.io/</link><description>Recent content on pop-ecx</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><atom:link href="https://pop-ecx.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>Purplefox Analysis</title><link>https://pop-ecx.github.io/purplefox-analysis/</link><pubDate>Tue, 25 Feb 2025 11:03:11 +0300</pubDate><guid>https://pop-ecx.github.io/purplefox-analysis/</guid><description>Originally written Thu, Jun 15, 2023
+A couple of months ago, I came across an intriguing .tmp file that was sent to me. The sender mentioned that their antivirus software had flagged and caught the file on their computer. Naturally, I decided to investigate further. Although the file was labeled as a .tmp file, running it through a file utility revealed that it was actually an MSI (Microsoft Software Installer) file.</description></item><item><title>About</title><link>https://pop-ecx.github.io/about/</link><pubDate>Mon, 24 Feb 2025 19:35:33 +0300</pubDate><guid>https://pop-ecx.github.io/about/</guid><description>Hey, I&amp;rsquo;m Ollie—a cybersecurity pro and dev diving deep into Zig, Lua, and Neovim. I tinker with low-level programming, build custom tooling, and explore malware analysis.
+This blog is where I share insights, experiments, and lessons learned—whether it’s writing an LSP, reverse-engineering binaries, or customizing Neovim for cybersecurity workflows.
+If you’re into efficient code, security research, or just making tools work your way, you’re in the right place.
+🛠 Languages &amp;amp; Tools: Zig, Lua, Python, YARA, Sigma, Neovim</description></item><item><title>Posts</title><link>https://pop-ecx.github.io/posts/</link><pubDate>Mon, 24 Feb 2025 13:15:42 +0300</pubDate><guid>https://pop-ecx.github.io/posts/</guid><description> Purplefox msi rootkit analysis</description></item></channel></rss>
