@@ -1,0 +1,7 @@
+baseURL = "https://pop-ecx.github.io/purplefox-analysis/"
+languageCode = "en-us"
+title = "Purplefox msi analysis"
+theme = "hyde"
+[params]
+
+description = "High level analysis of a purplefox rootkit msi"
