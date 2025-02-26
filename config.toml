@@ -1,7 +1,20 @@
-baseURL = "https://pop-ecx.github.io/purplefox-analysis/"
+theme = 'hyde'
+baseURL = "https://pop-ecx.github.io/"
 languageCode = "en-us"
-title = "Purplefox msi analysis"
-theme = "hyde"
+title = "pop-ecx"
 [params]
-
-description = "High level analysis of a purplefox rootkit msi"
+  description = "Break, Comprehend, Build"
+  github = "https://github.com/pop-ecx"
+  linkedin = "https://www.linkedin.com/in/oliver-mulwa"
+  authorImage = "/images/scarab.jpeg"
+## Main Menu
+[[menu.main]]
+    name = "Posts"
+    weight = 100
+    identifier = "posts"
+    url = "/posts/"
+[[menu.main]]
+    name = "About"
+    identifier = "about"
+    weight = 200
+    url = "/about/"
