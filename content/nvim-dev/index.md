@@ -1,7 +1,7 @@
 ---
 title: "Nvim Dev"
 date: 2025-03-17T11:27:33+03:00
-draft: true
+draft: false
 ---
 
 Here is a quick list of my Neovim setup for dev work.

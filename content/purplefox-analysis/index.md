@@ -1,7 +1,7 @@
 ---
 title: "Purplefox Analysis"
 date: 2025-02-25T11:03:11+03:00
-draft: true
+draft: false
 ---
 > *Originally written Thu, Jun 15, 2023*
 
