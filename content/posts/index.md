@@ -7,3 +7,4 @@ draft: false
 - [Purplefox msi rootkit analysis](../purplefox-analysis/)
 - [Nvim for devs](../nvim-dev/)
 - [Secure development in nvim using snyk](../secure-development/)
+- [Clearfake analysis pt 1](../clearfake/)
