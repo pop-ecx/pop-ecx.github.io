@@ -24,7 +24,7 @@ the dangerous invoke-expression cmdlet.
 
 > **Tip**: If you are a Neovim user add the following to your init.lua. It will save you lots of trouble
 and make your work efficient when base64 decoding stuff. With it simply highlight the base64 encoded
-string and hit `<leader>bd` in normal mode.
+string and hit `<leader>bd` in visual mode.
 
 ```lua
 vim.keymap.set('v', '<leader>bd', 
