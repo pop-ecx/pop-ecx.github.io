@@ -1,6 +1,10 @@
 ---
 title: "Secure Development"
+description: "A detailed guide on configuring Neovim with Snyk for security scanning."
 date: 2025-03-19T09:39:27+03:00
+tags: ["neovim", "snyk", "security", "vim"]
+categories: ["Neovim", "Cybersecurity"]
+keywords: ["Neovim Snyk", "Neovim security", "Snyk plugin", "Neovim configuration"]
 draft: false
 ---
 
