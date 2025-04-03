@@ -1,0 +1,21 @@
+<link rel=stylesheet href=/css/hyde.css><body><aside class=sidebar><div class="container sidebar-sticky"><div class=author-image><img src=/images/scarab.jpeg alt="Author Image" class=author-image></div><div class=sidebar-about><a href=https://pop-ecx.github.io/><h1>pop-ecx</h1></a><p class=lead>Break, Comprehend, Build</p></div><div class=social-links><a href=https://github.com/pop-ecx target=_blank rel="noopener noreferrer"><img src=https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/github.svg width=24 height=24 alt=GitHub></a>
+<a href=https://www.linkedin.com/in/oliver-mulwa target=_blank rel="noopener noreferrer"><img src=https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg width=24 height=24 alt=LinkedIn></a></div><nav><ul class=sidebar-nav><li><a href=https://pop-ecx.github.io/>Home</a></li><li><a href=/posts/>Posts</a></li><li><a href=/about/>About</a></li></ul></nav><p>&copy; 2025. All rights reserved.</p></div></aside><main class="content container"><div class=post><h1>Security Slips: The Day I Ran Unknown Code</h1><time datetime=2025-03-28T13:17:54+0300 class=post-date>Fri, Mar 28, 2025</time><p>On March 25th 2025, Troy Hunt, <a href=https://haveibeenpwned.com>haveibeenpwned&rsquo;s</a> author, published in his <a href=https://www.troyhunt.com/a-sneaky-phish-just-grabbed-my-mailchimp-mailing-list/>blog</a> about
+how a sneaky phishing lure got hold of his mailing list. This interesting read made me
+reminisce about how, not so long ago, I almost fell for a similar thing, albeit mine was
+not so sophisticated.</p><p>January 2nd 2025, 12 p.m EAT, I had just gotten home from a lengthy holiday. Being super
+tired I booted up my Latitude to check on a few things. One of the first things I saw was a
+github link sent in one of the many cybersecurity pages I follow. It was allegedly a tool
+to check on some IoT stuff. I quickly clicked on the link to the github page, git cloned
+the code and ran it (wasn&rsquo;t even thinking of one of my many VMs).</p><p>While running the program, It requested for some input (country code). That&rsquo;s where my
+paranoid personality woke up and screamed. I quickly ctrl + c&rsquo;d. I had not even checked the
+code I was running. I opened the cloned directory. There were only 2 python files,
+the main file and like a module file to be imported. &ldquo;Ohh, that&rsquo;s easy. Let me just open it&rdquo;,
+I thought to myself. To my shock, the main file was just a single, lengthy line of code, and on
+top of that it was obfuscated. Yeah, not a good start. &ldquo;Maybe suspicious&rdquo;, I said to myself.
+I spent the next couple of minutes cleaning it up and writing a deobfuscation script. I wasn&rsquo;t
+happy with myself. How could I be so dumb? I finally had the actual source code and understood pretty
+well what it does. Well, not everything. I still did not understand the import.</p><p>Luckily for me, the obfuscated structure of the import code was similar to the one in main. My deobfuscation
+script sufficed pretty well and within no time, I had the import code right in front of me.</p><p>A quick review showed the code did what it was advertized to do, no hidden shenanigans (at least that I know of).
+I also ran my endpoint protection software just to be sure (I normally turn it off since I have some sketchy stuff.
+Also, I&rsquo;m my own antivirus (o≧▽≦)o).</p><p>The obfuscation threw me off into thinking I actually ran malware but then again I fail to understand why benign code that
+is publicly available on github should be obfuscated. Sometimes obfuscated code is benign code.</p><p>Let that be a lesson, the only person who cannot fall for a hack is he who does not use technology. Return to monke :D</p></div></main></body></html>
