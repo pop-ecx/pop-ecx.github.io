@@ -8,3 +8,4 @@ draft: false
 - [Nvim for devs](../nvim-dev/)
 - [Secure development in nvim using snyk](../secure-development/)
 - [Clearfake analysis pt 1](../clearfake/)
+- [Security slips: The day i ran unknown code](../security-slips/)
