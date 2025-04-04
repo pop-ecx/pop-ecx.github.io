@@ -6,7 +6,7 @@ title = "pop-ecx"
   description = "Break, Comprehend, Build"
   github = "https://github.com/pop-ecx"
   linkedin = "https://www.linkedin.com/in/oliver-mulwa"
-  authorImage = "/images/scarab.jpeg"
+  authorImage = "/images/me.png"
 ## Main Menu
 [[menu.main]]
     name = "Posts"
