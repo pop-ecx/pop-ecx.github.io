@@ -1,19 +1,118 @@
-<link rel=stylesheet href=/css/hyde.css><body><aside class=sidebar><div class="container sidebar-sticky"><div class=author-image><img src=/images/me.png alt="Author Image" class=author-image></div><div class=sidebar-about><a href=https://pop-ecx.github.io/><h1>pop-ecx</h1></a><p class=lead>Break, Comprehend, Build</p></div><div class=social-links><a href=https://github.com/pop-ecx target=_blank rel="noopener noreferrer"><img src=https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/github.svg width=24 height=24 alt=GitHub></a>
-<a href=https://www.linkedin.com/in/oliver-mulwa target=_blank rel="noopener noreferrer"><img src=https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg width=24 height=24 alt=LinkedIn></a></div><nav><ul class=sidebar-nav><li><a href=https://pop-ecx.github.io/>Home</a></li><li><a href=/posts/>Posts</a></li><li><a href=/about/>About</a></li></ul></nav><p>&copy; 2025. All rights reserved.</p></div></aside><main class="content container"><div class=post><h1>Clearfake</h1><time datetime=2025-03-03T11:10:51+0300 class=post-date>Mon, Mar 3, 2025</time><p>A while ago (around 7 months ago), I had obtained, through a friend, a sample of clearfake malware that was wrecking
-havoc in one of his friend&rsquo;s servers.</p><p>This post is about analysis I had done. I have been procrastinating a lot on writing it, so here it goes&mldr;</p><p>Below is a screenshot of the infection method it uses, a notification to update your browser by
-running some powershell.</p><p><img src=clearfake4.png alt="update your browser"></p><p>I clicked copy and pasted it in Neovim. This is how it looked</p><p><img src=stage1.png alt=powershell></p><h2 id=stage1>Stage1</h2><p>Nothing particularly difficult here, just some base64 values that are to be decoded and of course
-the dangerous invoke-expression cmdlet.</p><blockquote><p><strong>Tip</strong>: If you are a Neovim user add the following to your init.lua. It will save you lots of trouble
+<link rel="stylesheet" href="/css/hyde.css">
+
+  <body class=" ">
+  <aside class="sidebar">
+  <div class="container sidebar-sticky">
+    
+    <div class="author-image">
+      <img src="/images/me.png" alt="Author Image" class="author-image">
+    </div>
+    
+    <div class="sidebar-about">
+      <a href="https://pop-ecx.github.io/"><h1>pop-ecx</h1></a>
+      <p class="lead">
+       Break, Comprehend, Build 
+      </p>
+    </div>
+    <div class="social-links">
+      
+      <a href="https://github.com/pop-ecx" target="_blank" rel="noopener noreferrer">
+          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/github.svg" width="24" height="24" alt="GitHub">
+      </a>
+      
+
+      
+      <a href="https://keybase.io/oliver_m" target="_blank" rel="noopener noreferrer">
+          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/keybase.svg" width="24" height="24" alt="Keybase">
+      </a>
+      
+
+      
+      <a href="https://www.linkedin.com/in/oliver-mulwa" target="_blank" rel="noopener noreferrer">
+          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" width="24" height="24" alt="LinkedIn">
+      </a>
+      
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="https://pop-ecx.github.io/">Home</a> </li>
+        <li><a href="/posts/"> Posts </a></li><li><a href="/about/"> About </a></li>
+      </ul>
+    </nav>
+
+    <p>&copy; 2025. All rights reserved. </p>
+  </div>
+</aside>
+
+
+    <main class="content container">
+    <div class="post">
+  <h1>Clearfake Malware Analysis</h1>
+  <time datetime=2025-03-03T11:10:51&#43;0300 class="post-date">Mon, Mar 3, 2025</time>
+  <p>A while ago (around 7 months ago), I had obtained, through a friend, a sample of clearfake malware that was wrecking
+havoc in one of his friend&rsquo;s servers.</p>
+<p>This post is about analysis I had done. I have been procrastinating a lot on writing it, so here it goes&hellip;</p>
+<p>Below is a screenshot of the infection method it uses, a notification to update your browser by
+running some powershell.</p>
+<p><img src="clearfake4.png" alt="update your browser"></p>
+<p>I clicked copy and pasted it in Neovim. This is how it looked</p>
+<p><img src="stage1.png" alt="powershell"></p>
+<h2 id="stage1">Stage1</h2>
+<p>Nothing particularly difficult here, just some base64 values that are to be decoded and of course
+the dangerous invoke-expression cmdlet.</p>
+<blockquote>
+<p><strong>Tip</strong>: If you are a Neovim user add the following to your init.lua. It will save you lots of trouble
 and make your work efficient when base64 decoding stuff. With it simply highlight the base64 encoded
-string and hit <code>&lt;leader>bd</code> in visual mode.</p></blockquote><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-lua data-lang=lua><span style=display:flex><span>vim.keymap.set(<span style=color:#e6db74>&#39;v&#39;</span>, <span style=color:#e6db74>&#39;&lt;leader&gt;bd&#39;</span>, 
-</span></span><span style=display:flex><span>    <span style=color:#e6db74>[[y:lua vim.fn.setreg(&#39;&#34;&#39;,
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>    vim.fn.system(&#39;base64 -w 0 --decode&#39;,
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>    vim.fn.getreg(&#39;&#34;&#39;)))&lt;cr&gt;gvP]]</span>,
-</span></span><span style=display:flex><span>    { noremap <span style=color:#f92672>=</span> <span style=color:#66d9ef>true</span>, silent <span style=color:#f92672>=</span> <span style=color:#66d9ef>true</span> })
-</span></span></code></pre></div><p>Here is the decoding process inside neovim:</p><p><a href=https://asciinema.org/a/Oqzl1uNkNkvjWMDJIfiNfMhPb><img src=https://asciinema.org/a/Oqzl1uNkNkvjWMDJIfiNfMhPb.svg alt=asciicast></a></p><p>The first string sets the clipboard value to nothing. The second encoded string is where the fun happens.</p><h2 id=stage2>Stage2</h2><p>The first part of the code checks for some memory space and increases it to 300mb if it&rsquo;s less than 200mb.</p><p><img src=stage2-1.png alt="increase memory"></p><p>It then reaches out to <code>rentry.co</code> and fetches some data
-<img src=stage2-2.png alt="Gets some data from a rentry endpoint"></p><p>It does a lot more stuff pertaining to getting down some encrypted commands, decrypts it and finally runs an <code>IEX</code>.
+string and hit <code>&lt;leader&gt;bd</code> in visual mode.</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lua" data-lang="lua"><span style="display:flex;"><span>vim.keymap.set(<span style="color:#e6db74">&#39;v&#39;</span>, <span style="color:#e6db74">&#39;&lt;leader&gt;bd&#39;</span>, 
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">[[y:lua vim.fn.setreg(&#39;&#34;&#39;,
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    vim.fn.system(&#39;base64 -w 0 --decode&#39;,
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    vim.fn.getreg(&#39;&#34;&#39;)))&lt;cr&gt;gvP]]</span>,
+</span></span><span style="display:flex;"><span>    { noremap <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>, silent <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span> })
+</span></span></code></pre></div><p>Here is the decoding process inside neovim:</p>
+<p><a href="https://asciinema.org/a/Oqzl1uNkNkvjWMDJIfiNfMhPb"><img src="https://asciinema.org/a/Oqzl1uNkNkvjWMDJIfiNfMhPb.svg" alt="asciicast"></a></p>
+<p>The first string sets the clipboard value to nothing. The second encoded string is where the fun happens.</p>
+<h2 id="stage2">Stage2</h2>
+<p>The first part of the code checks for some memory space and increases it to 300mb if it&rsquo;s less than 200mb.</p>
+<p><img src="stage2-1.png" alt="increase memory"></p>
+<p>It then reaches out to <code>rentry.co</code> and fetches some data
+<img src="stage2-2.png" alt="Gets some data from a rentry endpoint"></p>
+<p>It does a lot more stuff pertaining to getting down some encrypted commands, decrypts it and finally runs an <code>IEX</code>.
 Iex basically means the code is executed on the fly.
-<img src=stage2-3.png alt="Invoke expression"></p><p>Simply changing iex to echo gave me the command to be run by the malware.</p><p><img src=stage3.png alt="Here is what the malware runs"></p><p>The malware basically runs a base64 encoded script with the <code>--windowstyle hidden</code> option. We can decode it swiftly now since we know that Neovim b64 decode trick.</p><h2 id=stage3>Stage3</h2><p>After base64 decoding, the code does not need any more deobfuscation, apart from some variable cleanup.
-It just creates the keys and IV for decryption. The main snippet to be focused on is below:</p><p><img src=stage3-1.png alt=snippet></p><p>The code sets a couple of urls, the first to download a payload <code>data.zip</code>, and the other 2 for status checks.
+<img src="stage2-3.png" alt="Invoke expression"></p>
+<p>Simply changing iex to echo gave me the command to be run by the malware.</p>
+<p><img src="stage3.png" alt="Here is what the malware runs"></p>
+<p>The malware basically runs a base64 encoded script with the <code>--windowstyle hidden</code> option. We can decode it swiftly now since we know that Neovim b64 decode trick.</p>
+<h2 id="stage3">Stage3</h2>
+<p>After base64 decoding, the code does not need any more deobfuscation, apart from some variable cleanup.
+It just creates the keys and IV for decryption. The main snippet to be focused on is below:</p>
+<p><img src="stage3-1.png" alt="snippet"></p>
+<p>The code sets a couple of urls, the first to download a payload <code>data.zip</code>, and the other 2 for status checks.
 It then generates a random alphanumeric name.
-Now it attempts to download the malicious zip file and notifies the attacker of the download.</p><p><img src=stage3-2.png alt="download data.zip"></p><p>Finally it searches for an exe file, executes the first one it finds and alerts the attacker by sending a POST to the third url.</p><p><img src=stage3-3.png alt=execute></p><p>Remember the urls in mention had an encrypted domain name <code>$DcS1</code>? Decrypting that showed the domain is <strong>businessresources[.]ltd.</strong>
-That means the malicious zip file can be obtained by downloading it from <strong>https[:]//businessresources[.]ltd/df/data[.]zip.</strong></p><p>The url is dead now but I still have the data.zip file obtained from the analysis.</p><p>I&rsquo;ll break down the contents of the data.zip file in another post. Stay tuned for that.</p><h1 id=iocs>IOCs</h1><p>https[:]//businessresources[.]ltd/df/data[.]zip</p><p>https[:]//rsmbscm[.]businessresources[.]ltd/post.php?status=2</p><p>https[:]//rsmbscm[.]businessresources[.]ltd/post.php?status=3</p><p>83f3d303f1d764476e238f3d7abe0faf</p><p>665d5cb8bf03ea4637f8a1eb891237cc</p></div></main></body></html>
+Now it attempts to download the malicious zip file and notifies the attacker of the download.</p>
+<p><img src="stage3-2.png" alt="download data.zip"></p>
+<p>Finally it searches for an exe file, executes the first one it finds and alerts the attacker by sending a POST to the third url.</p>
+<p><img src="stage3-3.png" alt="execute"></p>
+<p>Remember the urls in mention had an encrypted domain name <code>$DcS1</code>? Decrypting that showed the domain is <strong>businessresources[.]ltd.</strong>
+That means the malicious zip file can be obtained by downloading it from <strong>https[:]//businessresources[.]ltd/df/data[.]zip.</strong></p>
+<p>The url is dead now but I still have the data.zip file obtained from the analysis.</p>
+<p>I&rsquo;ll break down the contents of the data.zip file in another post. Stay tuned for that.</p>
+<h1 id="iocs">IOCs</h1>
+<p>https[:]//businessresources[.]ltd/df/data[.]zip</p>
+<p>https[:]//rsmbscm[.]businessresources[.]ltd/post.php?status=2</p>
+<p>https[:]//rsmbscm[.]businessresources[.]ltd/post.php?status=3</p>
+<p>83f3d303f1d764476e238f3d7abe0faf</p>
+<p>665d5cb8bf03ea4637f8a1eb891237cc</p>
+
+</div>
+
+
+    </main>
+
+    
+      
+    
+  </body>
+</html>

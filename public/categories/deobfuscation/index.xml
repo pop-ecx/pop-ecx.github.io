@@ -1,2 +1,21 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>deobfuscation on pop-ecx</title><link>https://pop-ecx.github.io/categories/deobfuscation/</link><description>Recent content in deobfuscation on pop-ecx</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Fri, 28 Mar 2025 13:17:54 +0300</lastBuildDate><atom:link href="https://pop-ecx.github.io/categories/deobfuscation/index.xml" rel="self" type="application/rss+xml"/><item><title>Security Slips: The Day I Ran Unknown Code</title><link>https://pop-ecx.github.io/security-slips/</link><pubDate>Fri, 28 Mar 2025 13:17:54 +0300</pubDate><guid>https://pop-ecx.github.io/security-slips/</guid><description>On March 25th 2025, Troy Hunt, haveibeenpwned&amp;rsquo;s author, published in his blog about how a sneaky phishing lure got hold of his mailing list. This interesting read made me reminisce about how, not so long ago, I almost fell for a similar thing, albeit mine was not so sophisticated.
-January 2nd 2025, 12 p.m EAT, I had just gotten home from a lengthy holiday. Being super tired I booted up my Latitude to check on a few things.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>deobfuscation on pop-ecx</title>
+    <link>https://pop-ecx.github.io/categories/deobfuscation/</link>
+    <description>Recent content in deobfuscation on pop-ecx</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 28 Mar 2025 13:17:54 +0300</lastBuildDate><atom:link href="https://pop-ecx.github.io/categories/deobfuscation/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Security Slips: The Day I Ran Unknown Code</title>
+      <link>https://pop-ecx.github.io/security-slips/</link>
+      <pubDate>Fri, 28 Mar 2025 13:17:54 +0300</pubDate>
+      
+      <guid>https://pop-ecx.github.io/security-slips/</guid>
+      <description>On March 25th 2025, Troy Hunt, haveibeenpwned&amp;rsquo;s author, published in his blog about how a sneaky phishing lure got hold of his mailing list. This interesting read made me reminisce about how, not so long ago, I almost fell for a similar thing, albeit mine was not so sophisticated.
+January 2nd 2025, 12 p.m EAT, I had just gotten home from a lengthy holiday. Being super tired I booted up my Latitude to check on a few things.</description>
+    </item>
+    
+  </channel>
+</rss>
