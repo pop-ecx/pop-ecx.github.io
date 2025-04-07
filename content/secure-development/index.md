@@ -1,5 +1,5 @@
 ---
-title: "Secure Development"
+title: "Secure Development in Neovim using Snyk"
 description: "A detailed guide on configuring Neovim with Snyk for security scanning."
 date: 2025-03-19T09:39:27+03:00
 tags: ["neovim", "snyk", "security", "vim"]
@@ -62,5 +62,7 @@ to the open buffer. If not run `:LspLog` to check for any errors.
 >  Note
 
 > Remember to make sure the language you are writing is supported by snyk
+
+> Also if you're writing code in Neovim, you my already be a chad and do not need local SAST tooling :D
 
 Check out the snyk [docs](https://docs.snyk.io/scm-ide-and-ci-cd-integrations/snyk-ide-plugins-and-extensions/snyk-language-server) for more information.

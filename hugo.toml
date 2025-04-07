@@ -3,7 +3,10 @@ baseURL = "https://pop-ecx.github.io/"
 languageCode = "en-us"
 title = "pop-ecx"
 [params]
+  custom_css = ["css/custom.css"]
   description = "Break, Comprehend, Build"
+  keywords = "Malware analysis, Neovim, Zig, Lua, YARA, Sigma, LSP, Programming, Software Development, Cybersecurity"
+  keybase = "https://keybase.io/oliver_m"
   github = "https://github.com/pop-ecx"
   linkedin = "https://www.linkedin.com/in/oliver-mulwa"
   authorImage = "/images/me.png"
@@ -18,3 +21,7 @@ title = "pop-ecx"
     identifier = "about"
     weight = 200
     url = "/about/"
+[sitemap]
+  changefreq = "weekly"
+  filename = "sitemap.xml"
+  priority = 0.5

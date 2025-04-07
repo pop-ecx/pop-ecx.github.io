@@ -18,6 +18,12 @@
       </a>
       {{ end }}
 
+      {{ with .Site.Params.keybase }}
+      <a href="{{ . }}" target="_blank" rel="noopener noreferrer">
+          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/keybase.svg" width="24" height="24" alt="Keybase">
+      </a>
+      {{ end }}
+
       {{ with .Site.Params.linkedin }}
       <a href="{{ . }}" target="_blank" rel="noopener noreferrer">
           <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" width="24" height="24" alt="LinkedIn">
@@ -37,3 +43,4 @@
     <p>{{ with .Site.Params.copyright }}{{.}}{{ else }}&copy; {{ now.Format "2006"}}. All rights reserved. {{end}}</p>
   </div>
 </aside>
+

@@ -1,6 +1,9 @@
 ---
-title: "Clearfake"
+title: "Clearfake Malware Analysis"
 date: 2025-03-03T11:10:51+03:00
+tags: ["malware analysis", "malware", "deobfuscation", "neovim"]
+categories: ["malware analysis"]
+keywords: ["deobfuscation", "malware analysis", "clearfake"]
 draft: false
 ---
 
