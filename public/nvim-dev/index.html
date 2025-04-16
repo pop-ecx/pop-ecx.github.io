@@ -1,116 +1,16 @@
-<link rel="stylesheet" href="/css/hyde.css">
-
-  <body class=" ">
-  <aside class="sidebar">
-  <div class="container sidebar-sticky">
-    
-    <div class="author-image">
-      <img src="/images/me.png" alt="Author Image" class="author-image">
-    </div>
-    
-    <div class="sidebar-about">
-      <a href="https://pop-ecx.github.io/"><h1>pop-ecx</h1></a>
-      <p class="lead">
-       Break, Comprehend, Build 
-      </p>
-    </div>
-    <div class="social-links">
-      
-      <a href="https://github.com/pop-ecx" target="_blank" rel="noopener noreferrer">
-          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/github.svg" width="24" height="24" alt="GitHub">
-      </a>
-      
-
-      
-      <a href="https://keybase.io/oliver_m" target="_blank" rel="noopener noreferrer">
-          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/keybase.svg" width="24" height="24" alt="Keybase">
-      </a>
-      
-
-      
-      <a href="https://www.linkedin.com/in/oliver-mulwa" target="_blank" rel="noopener noreferrer">
-          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" width="24" height="24" alt="LinkedIn">
-      </a>
-      
-    </div>
-
-    <nav>
-      <ul class="sidebar-nav">
-        <li><a href="https://pop-ecx.github.io/">Home</a> </li>
-        <li><a href="/posts/"> Posts </a></li><li><a href="/about/"> About </a></li>
-      </ul>
-    </nav>
-
-    <p>&copy; 2025. All rights reserved. </p>
-  </div>
-</aside>
-
-
-    <main class="content container">
-    <div class="post">
-  <h1>Nvim Dev</h1>
-  <time datetime=2025-03-17T11:27:33&#43;0300 class="post-date">Mon, Mar 17, 2025</time>
-  <p>Here is a quick list of my Neovim setup for dev work.
-This includes plugins, LSPs and some handy keymaps.</p>
-<h2 id="plugins">Plugins</h2>
-<ol>
-<li><a href="https://github.com/nvim-telescope/telescope.nvim">Telescope</a> - Fuzzy find files quickly. No need for filetree with this one.</li>
-<li><a href="https://github.com/ThePrimeagen/harpoon">Harpoon</a> - Mark frequently visited files and get to them blazingly fast.</li>
-<li><a href="https://github.com/williamboman/mason">Mason</a> - This helps in installing language servers. Make sure you have <a href="https://github.com/williamboman/mason-lspconfig.nvim">mason-lspconfig.nvim</a> and <a href="https://github.com/neovim/nvim-lspconfig">nvim-lspconfig</a>.</li>
-<li><a href="https://github.com/hrsh7th/nvim-cmp">nvim-cmp</a> - For completions. Make sure to also get <a href="https://github.com/L3MON4D3/LuaSnip">Luasnip</a>, <a href="https://github.com/saadparwaiz1/cmp_luasnip">cmp_luasnip</a>, <a href="https://github.com/rafamadriz/friendly-snippets">friendly-snippets</a> and <a href="https://github.com/hrsh7th/cmp-nvim-lsp">nvim-cmp-lsp</a>.</li>
-<li><a href="https://github.com/NeogitOrg/neogit">Neogit</a> - Git integration.</li>
-<li><a href="https://github.com/zbirenbaum/copilot.lua">Copilot</a> - Get copilot in neovim. Do not forget to get <a href="https://github.com/zbirenbaum/copilot-cmp">copilot-cmp</a> as well.</li>
-<li><a href="https://github.com/nvim-treesitter/nvim-treesitter">Treesitter</a> - For some sweet syntax highlighting.</li>
-<li><a href="https://github.com/stevearc/oil.nvim">Oil</a> - Create directories and files. (You can also opt for Netrw)</li>
-</ol>
-<h2 id="lsps">LSPs</h2>
-<p>This section starts with must have LSPs. The optional section is just catered to my taste and programming languages I use.</p>
-<ol>
-<li><a href="https://github.com/snyk/snyk-ls">Snyk</a> - Static code security checks in neovim as you code. <strong>I&rsquo;ll write about how to get this working in Neovim as documentation might be a bit lacking</strong>.</li>
-<li><a href="https://github.com/LuaLS/lua-language-server">Lua-ls</a> - How can you use neovim without it?</li>
-</ol>
-<h3 id="optional">Optional</h3>
-<ol start="3">
-<li><a href="https://github.com/zigtools/zls">zls</a> - Because I write zig.</li>
-<li><a href="https://github.com/mtshiba/pylyzer">pylyzer</a> - I write python as well. <strong>Fast and slow :D</strong></li>
-</ol>
-<h2 id="keymaps">Keymaps</h2>
-<ol>
-<li>For document symbols. View and jump around code symbols</li>
-</ol>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lua" data-lang="lua"><span style="display:flex;"><span>vim.keymap.set(<span style="color:#e6db74">&#39;n&#39;</span>, <span style="color:#e6db74">&#39;&lt;leader&gt;ds&#39;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;:Telescope lsp_document_symbols&lt;CR&gt;&#39;</span>,
-</span></span><span style="display:flex;"><span>    {noremap <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>, silent<span style="color:#f92672">=</span><span style="color:#66d9ef">true</span>})
-</span></span></code></pre></div><ol start="2">
-<li>For code actions</li>
-</ol>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lua" data-lang="lua"><span style="display:flex;"><span>vim.keymap.set({ <span style="color:#e6db74">&#39;n&#39;</span>, <span style="color:#e6db74">&#39;v&#39;</span> },
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;&lt;leader&gt;ca&#39;</span>,
-</span></span><span style="display:flex;"><span>    vim.lsp.buf.code_action, {})
-</span></span></code></pre></div><ol start="3">
-<li>Creating new file/directory</li>
-</ol>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lua" data-lang="lua"><span style="display:flex;"><span>vim.keymap.set(<span style="color:#e6db74">&#34;n&#34;</span>, <span style="color:#e6db74">&#34;&lt;C-n&gt;&#34;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;:lua require(&#39;oil.actions&#39;).new()&lt;CR&gt;&#34;</span>,
-</span></span><span style="display:flex;"><span>    { desc <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Create new file/directory in Oil&#34;</span> })
-</span></span></code></pre></div><ol start="4">
-<li>Search keymaps</li>
-</ol>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lua" data-lang="lua"><span style="display:flex;"><span>vim.keymap.set(<span style="color:#e6db74">&#39;n&#39;</span>, <span style="color:#e6db74">&#39;&lt;leader&gt;sk&#39;</span>,
-</span></span><span style="display:flex;"><span>    require(<span style="color:#e6db74">&#34;telescope.builtin&#34;</span>).keymaps,
-</span></span><span style="display:flex;"><span>    { desc <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;[S]earch Keymaps &#39;</span> })
-</span></span></code></pre></div><blockquote>
-<p>[!Note]</p>
-<p>Part 2 which will be more cybersecurity focused</p>
-</blockquote>
-
-</div>
-
-
-    </main>
-
-    
-      
-    
-  </body>
-</html>
+<link rel=stylesheet href=/css/hyde.css><body><aside class=sidebar><div class="container sidebar-sticky"><div class=author-image><img src=/images/me.png alt="Author Image" class=author-image></div><div class=sidebar-about><a href=https://pop-ecx.github.io/><h1>pop-ecx</h1></a><p class=lead>Break, Comprehend, Build</p></div><div class=social-links><a href=https://github.com/pop-ecx target=_blank rel="noopener noreferrer"><img src=https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/github.svg width=24 height=24 alt=GitHub></a>
+<a href=https://keybase.io/oliver_m target=_blank rel="noopener noreferrer"><img src=https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/keybase.svg width=24 height=24 alt=Keybase></a>
+<a href=https://www.linkedin.com/in/oliver-mulwa target=_blank rel="noopener noreferrer"><img src=https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg width=24 height=24 alt=LinkedIn></a></div><nav><ul class=sidebar-nav><li><a href=https://pop-ecx.github.io/>Home</a></li><li><a href=/posts/>Posts</a></li><li><a href=/about/>About</a></li></ul></nav><p>&copy; 2025. All rights reserved.</p></div></aside><main class="content container"><div class=post><h1>Nvim Dev</h1><time datetime=2025-03-17T11:27:33+0300 class=post-date>Mon, Mar 17, 2025</time><p>Here is a quick list of my Neovim setup for dev work.
+This includes plugins, LSPs and some handy keymaps.</p><h2 id=plugins>Plugins</h2><ol><li><a href=https://github.com/nvim-telescope/telescope.nvim>Telescope</a> - Fuzzy find files quickly. No need for filetree with this one.</li><li><a href=https://github.com/ThePrimeagen/harpoon>Harpoon</a> - Mark frequently visited files and get to them blazingly fast.</li><li><a href=https://github.com/williamboman/mason>Mason</a> - This helps in installing language servers. Make sure you have <a href=https://github.com/williamboman/mason-lspconfig.nvim>mason-lspconfig.nvim</a> and <a href=https://github.com/neovim/nvim-lspconfig>nvim-lspconfig</a>.</li><li><a href=https://github.com/hrsh7th/nvim-cmp>nvim-cmp</a> - For completions. Make sure to also get <a href=https://github.com/L3MON4D3/LuaSnip>Luasnip</a>, <a href=https://github.com/saadparwaiz1/cmp_luasnip>cmp_luasnip</a>, <a href=https://github.com/rafamadriz/friendly-snippets>friendly-snippets</a> and <a href=https://github.com/hrsh7th/cmp-nvim-lsp>nvim-cmp-lsp</a>.</li><li><a href=https://github.com/NeogitOrg/neogit>Neogit</a> - Git integration.</li><li><a href=https://github.com/zbirenbaum/copilot.lua>Copilot</a> - Get copilot in neovim. Do not forget to get <a href=https://github.com/zbirenbaum/copilot-cmp>copilot-cmp</a> as well.</li><li><a href=https://github.com/nvim-treesitter/nvim-treesitter>Treesitter</a> - For some sweet syntax highlighting.</li><li><a href=https://github.com/stevearc/oil.nvim>Oil</a> - Create directories and files. (You can also opt for Netrw)</li></ol><h2 id=lsps>LSPs</h2><p>This section starts with must have LSPs. The optional section is just catered to my taste and programming languages I use.</p><ol><li><a href=https://github.com/snyk/snyk-ls>Snyk</a> - Static code security checks in neovim as you code. <strong>I&rsquo;ll write about how to get this working in Neovim as documentation might be a bit lacking</strong>.</li><li><a href=https://github.com/LuaLS/lua-language-server>Lua-ls</a> - How can you use neovim without it?</li></ol><h3 id=optional>Optional</h3><ol start=3><li><a href=https://github.com/zigtools/zls>zls</a> - Because I write zig.</li><li><a href=https://github.com/mtshiba/pylyzer>pylyzer</a> - I write python as well. <strong>Fast and slow :D</strong></li></ol><h2 id=keymaps>Keymaps</h2><ol><li>For document symbols. View and jump around code symbols</li></ol><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-lua data-lang=lua><span style=display:flex><span>vim.keymap.set(<span style=color:#e6db74>&#39;n&#39;</span>, <span style=color:#e6db74>&#39;&lt;leader&gt;ds&#39;</span>,
+</span></span><span style=display:flex><span>    <span style=color:#e6db74>&#39;:Telescope lsp_document_symbols&lt;CR&gt;&#39;</span>,
+</span></span><span style=display:flex><span>    {noremap <span style=color:#f92672>=</span> <span style=color:#66d9ef>true</span>, silent<span style=color:#f92672>=</span><span style=color:#66d9ef>true</span>})
+</span></span></code></pre></div><ol start=2><li>For code actions</li></ol><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-lua data-lang=lua><span style=display:flex><span>vim.keymap.set({ <span style=color:#e6db74>&#39;n&#39;</span>, <span style=color:#e6db74>&#39;v&#39;</span> },
+</span></span><span style=display:flex><span>    <span style=color:#e6db74>&#39;&lt;leader&gt;ca&#39;</span>,
+</span></span><span style=display:flex><span>    vim.lsp.buf.code_action, {})
+</span></span></code></pre></div><ol start=3><li>Creating new file/directory</li></ol><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-lua data-lang=lua><span style=display:flex><span>vim.keymap.set(<span style=color:#e6db74>&#34;n&#34;</span>, <span style=color:#e6db74>&#34;&lt;C-n&gt;&#34;</span>,
+</span></span><span style=display:flex><span>    <span style=color:#e6db74>&#34;:lua require(&#39;oil.actions&#39;).new()&lt;CR&gt;&#34;</span>,
+</span></span><span style=display:flex><span>    { desc <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;Create new file/directory in Oil&#34;</span> })
+</span></span></code></pre></div><ol start=4><li>Search keymaps</li></ol><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-lua data-lang=lua><span style=display:flex><span>vim.keymap.set(<span style=color:#e6db74>&#39;n&#39;</span>, <span style=color:#e6db74>&#39;&lt;leader&gt;sk&#39;</span>,
+</span></span><span style=display:flex><span>    require(<span style=color:#e6db74>&#34;telescope.builtin&#34;</span>).keymaps,
+</span></span><span style=display:flex><span>    { desc <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;[S]earch Keymaps &#39;</span> })
+</span></span></code></pre></div><blockquote><p>[!Note]</p><p>Part 2 which will be more cybersecurity focused</p></blockquote></div></main></body></html>
