@@ -9,3 +9,6 @@ draft: false
 - [Secure development in nvim using snyk](../secure-development/)
 - [Clearfake analysis pt 1](../clearfake/)
 - [Security slips: The day i ran unknown code](../security-slips/)
+- [clearfake 2: We now have lumma](../clearfake-2/)
+- [Quantum Key Distribution](../quantum-key-distribution/)
+- [Chaos Cryptography](../chaos-cryptography/)
