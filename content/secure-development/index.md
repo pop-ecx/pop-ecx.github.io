@@ -44,6 +44,8 @@ lspconfig.snyk_ls.setup({
     }
 })
 ```
+> Edit: If you're on neovim > 0.11 use `vim.lsp.enable()`
+
 For the token option, use your auth token for snyk code, And no,
 that is not my snyk token (✿╹◡╹)
 
@@ -63,6 +65,6 @@ to the open buffer. If not run `:LspLog` to check for any errors.
 
 > Remember to make sure the language you are writing is supported by snyk
 
-> Also if you're writing code in Neovim, you my already be a chad and do not need local SAST tooling :D
+> Also if you're writing code in Neovim, you may already be a chad and do not need local SAST tooling :D
 
 Check out the snyk [docs](https://docs.snyk.io/scm-ide-and-ci-cd-integrations/snyk-ide-plugins-and-extensions/snyk-language-server) for more information.
