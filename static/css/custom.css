@@ -1,0 +1,64 @@
+/* Fix code block overflow issues */
+pre {
+    overflow-x: auto;
+    white-space: pre;
+    word-wrap: normal;
+    max-width: 100%;
+}
+
+/* Ensure code elements don't break container */
+code {
+    white-space: pre;
+    overflow-wrap: normal;
+    word-break: normal;
+}
+
+/* For fenced code blocks with syntax highlighting */
+.highlight {
+    overflow-x: auto;
+    margin: 1rem 0;
+}
+
+.highlight pre {
+    overflow-x: auto;
+    padding: 1rem;
+    margin: 0;
+    white-space: pre;
+    word-wrap: normal;
+}
+
+/* For inline code that might be long */
+p code, 
+li code, 
+td code {
+    word-break: break-all;
+    white-space: normal;
+    background: #f8f8f8;
+    padding: 0.2em 0.4em;
+    border-radius: 3px;
+    font-size: 0.9em;
+}
+
+/* Ensure the container doesn't overflow */
+.content {
+    overflow-x: hidden;
+}
+
+/* Add scrollbar styling for better UX */
+pre::-webkit-scrollbar {
+    height: 8px;
+}
+
+pre::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+pre::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+}
+
+pre::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}

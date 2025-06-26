@@ -12,3 +12,4 @@ draft: false
 - [clearfake 2: We now have lumma](../clearfake-2/)
 - [Quantum Key Distribution](../quantum-key-distribution/)
 - [Chaos Cryptography](../chaos-cryptography/)
+- [Writing a yara parser](../writing-a-yara-parser/)
