@@ -8,6 +8,8 @@ keywords: ["Neovim Snyk", "Neovim security", "Snyk plugin", "Neovim configuratio
 draft: false
 ---
 
+
+
 In my [previous post](../nvim-dev/) I talked about how you can use snyk
 in your editor as you code and even added snyk-ls as a must
 have. I had a bit of a tough time

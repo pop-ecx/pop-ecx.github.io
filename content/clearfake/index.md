@@ -7,6 +7,11 @@ keywords: ["deobfuscation", "malware analysis", "clearfake"]
 draft: false
 ---
 
+
+
+
+
+
 A while ago (around 7 months ago), I had obtained, through a friend, a sample of clearfake malware that was wrecking
 havoc in one of his friend's servers.
 

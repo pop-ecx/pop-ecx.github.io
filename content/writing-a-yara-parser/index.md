@@ -7,6 +7,8 @@ keywords: ["yara", "parser", "treesitter", "ziglang"]
 draft: false
 ---
 
+
+
 It's been a while since I wrote yara rules. In fact, the last time I did, I was still using vscode. I needed now to write one. So I chose to 
 look at one of my local yara rules repo. Opened it in nvim and ... no syntax highlighting.
 

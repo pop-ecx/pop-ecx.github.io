@@ -4,7 +4,7 @@ languageCode = "en-us"
 title = "pop-ecx"
 [params]
   custom_css = ["css/custom.css"]
-  description = "Break, Comprehend, Build"
+  description = "Tech musings"
   keywords = "Malware analysis, Neovim, Zig, Lua, YARA, Sigma, LSP, Programming, Software Development, Cybersecurity"
   keybase = "https://keybase.io/oliver_m"
   github = "https://github.com/pop-ecx"

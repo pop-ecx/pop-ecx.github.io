@@ -7,6 +7,8 @@ categories: ["deobfuscation", "Cybersecurity"]
 keywords: ["code deobfuscation"]
 draft: false
 ---
+
+
 On March 25th 2025, Troy Hunt, [haveibeenpwned's](https://haveibeenpwned.com) author, published in his [blog](https://www.troyhunt.com/a-sneaky-phish-just-grabbed-my-mailchimp-mailing-list/) about
 how a sneaky phishing lure got hold of his mailing list. This interesting read made me 
 reminisce about how, not so long ago, I almost fell for a similar thing, albeit mine was
