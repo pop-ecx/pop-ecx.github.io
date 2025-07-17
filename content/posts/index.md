@@ -13,3 +13,4 @@ draft: false
 - [Quantum Key Distribution](../quantum-key-distribution/)
 - [Chaos Cryptography](../chaos-cryptography/)
 - [Writing a yara parser](../writing-a-yara-parser/)
+- [Reflections on writing a mythic C2 agent in zig](../reflections-on-writing-a-mythic-c2-agent-in-zig/)
