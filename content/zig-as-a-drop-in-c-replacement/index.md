@@ -89,7 +89,7 @@ The next step is to link against the X11 libraries that st depends on.
 ```
 
 The `.cwd_relative` field is crucial since we are using absolute paths for the
-include directories. Zog does complain about it though.
+include directories. Zig does complain about it though.
 
 Next, `config.def.h` needs to be copied as it is specified in the Makefile.
 
