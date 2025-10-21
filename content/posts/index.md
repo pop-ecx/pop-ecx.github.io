@@ -14,4 +14,5 @@ draft: false
 - [Chaos Cryptography](../chaos-cryptography/)
 - [Writing a yara parser](../writing-a-yara-parser/)
 - [Reflections on writing a mythic C2 agent in zig](../reflections-on-writing-a-mythic-c2-agent-in-zig/)
-- [Pack to the Future: Obfuscating My C2 Agent](..//)
+- [Pack to the Future: Obfuscating My C2 Agent](../pack-to-the-future:obfuscating-my-c2-agent/)
+- [Zig as a drop in C replacement](../zig-as-a-drop-in-c-replacement/)
