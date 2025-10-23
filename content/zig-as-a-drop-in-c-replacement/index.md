@@ -121,6 +121,16 @@ zig build
 ```
 The resulting st binary should be created in the `zig-out/` directory.
 
+{{< rawhtml >}} 
+
+<video width=100% controls autoplay>
+    <source src="/videos/zig-builds-st.mp4" type="video/mp4">
+    Your browser does not support the video tag.  
+</video>
+
+{{< /rawhtml >}}
+
+
 Remember that this is a basic example and does not include all the features such
 as install and uninstall in the original Makefile. That is left as an exercise 
 for the reader. You could try to build other C projects using Zig like Picom for example.
