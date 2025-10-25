@@ -88,6 +88,10 @@ The next step is to link against the X11 libraries that st depends on.
     });
 ```
 
+> The more up-to-date way at the time of wtiting this is to use `root_module` e.g
+> `exe.root_module.link_libc = true;`.
+
+
 The `.cwd_relative` field is crucial since we are using absolute paths for the
 include directories. Zig does complain about it though.
 
