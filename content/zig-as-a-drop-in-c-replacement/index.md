@@ -1,5 +1,5 @@
 ---
-title: "Zig as a Drop in C Replacement"
+title: "Zig as a drop-in replacement for C build systems"
 date: 2025-10-21T09:28:15+03:00
 tags: ["zig", "build systems", "zig toolchain", "C"]
 categories: ["zig", "build systems", "C"]
