@@ -24,6 +24,12 @@
       </a>
       {{ end }}
 
+      {{ with .Site.Params.bluesky }}
+      <a href="{{ . }}" target="_blank" rel="noopener noreferrer">
+          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/bluesky.svg" width="24" height="24" alt="Bluesky">
+      </a>
+      {{ end }}
+
       {{ with .Site.Params.linkedin }}
       <a href="{{ . }}" target="_blank" rel="noopener noreferrer">
           <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" width="24" height="24" alt="LinkedIn">
