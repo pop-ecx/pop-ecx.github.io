@@ -4,7 +4,8 @@ date: 2025-02-24T13:15:42+03:00
 draft: false
 ---
 
-- [Zig as a drop in C replacement](../zig-as-a-drop-in-c-replacement/) - *Oct 21, 2025*
+- [Painless Guide to Linux in Memory Execution](../painless-guide-to-linux-in-memory-execution/) - *Dec 4, 2025*
+- [Zig as a drop in C build systems replacement](../zig-as-a-drop-in-c-replacement/) - *Oct 21, 2025*
 - [Pack to the Future: Obfuscating My C2 Agent](../pack-to-the-futureobfuscating-my-c2-agent/) - *Sep 9, 2025*
 - [Reflections on writing a mythic C2 agent in zig](../reflections-on-writing-a-mythic-c2-agent-in-zig/) - *Jul 14, 2025*
 - [Writing a yara parser](../writing-a-yara-parser/) - *Jun 18, 2025*

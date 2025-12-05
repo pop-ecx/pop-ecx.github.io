@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://pop-ecx.github.io/sitemap.xml
