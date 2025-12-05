@@ -1,5 +1,5 @@
 ---
-title: "Painless Guide to Linux in Memory Execution"
+title: "Painless Guide to Linux in-Memory Execution"
 date: 2025-12-04T08:21:15+03:00
 tags: ["zig", "Offensive", "fileless", "in-memory execution", "Linux"]
 categories: ["zig", "Offensive", "in-memory execution"]
