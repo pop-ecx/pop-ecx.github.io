@@ -1,7 +1,7 @@
 ---
 title: "About"
 date: 2025-02-24T19:35:33+03:00
-draft: true
+draft: false
 ---
 
 Hey, I'm Ollie—a cybersecurity pro and dev diving deep into Zig, Lua, and Neovim. I tinker with low-level programming, build custom tooling, and explore malware analysis.
