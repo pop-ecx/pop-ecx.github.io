@@ -127,10 +127,12 @@ The resulting st binary should be created in the `zig-out/` directory.
 
 {{< rawhtml >}} 
 
+<div class="darkmode-ignore">
 <video width=100% controls autoplay>
     <source src="/videos/zig-builds-st.mp4" type="video/mp4">
     Your browser does not support the video tag.  
 </video>
+</div>
 
 {{< /rawhtml >}}
 
