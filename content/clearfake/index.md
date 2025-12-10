@@ -35,11 +35,7 @@ and make your work efficient when base64 decoding stuff. With it simply highligh
 string and hit `<leader>bd` in visual mode.
 
 ```lua
-vim.keymap.set('v', '<leader>bd', 
-    [[y:lua vim.fn.setreg('"',
-    vim.fn.system('base64 -w 0 --decode',
-    vim.fn.getreg('"')))<cr>gvP]],
-    { noremap = true, silent = true })
+vim.keymap.set('v', '<leader>bd', [[y:lua vim.fn.setreg('"',vim.fn.system('base64 -w 0 --decode',vim.fn.getreg('"')))<cr>gvP]],{ noremap = true, silent = true })
 ```
 Here is the decoding process inside neovim:
 

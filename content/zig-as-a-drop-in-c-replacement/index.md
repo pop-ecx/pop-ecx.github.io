@@ -98,8 +98,7 @@ include directories. Zig does complain about it though.
 Next, `config.def.h` needs to be copied as it is specified in the Makefile.
 
 ```zig
-    const config_copy = b.addSystemCommand(&[_][]const u8{ "cp", 
-        "config.def.h", "config.h" });
+    const config_copy = b.addSystemCommand(&[_][]const u8{ "cp", "config.def.h", "config.h" });
     exe.step.dependOn(&config_copy.step);
 ```
 Finally we can add a step for running the program after building it.

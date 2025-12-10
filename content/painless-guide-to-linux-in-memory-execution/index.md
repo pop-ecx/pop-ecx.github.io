@@ -71,11 +71,9 @@ strings for the filename, args and environment variables.
 
 ```zig
 var path_buf: [64]u8 = undefined;
-const proc_path = std.fmt.bufPrint(&path_buf,
-    "/proc/self/fd/{d}",.{fd}) catch unreachable;
+const proc_path = std.fmt.bufPrint(&path_buf,"/proc/self/fd/{d}",.{fd}) catch unreachable;
 path_buf[proc_path.len] = 0; // Null-terminate
-const path_cstr: [*:0]const u8 = path_buf[0..proc_path.len: 0]
-                                .ptr;
+const path_cstr: [*:0]const u8 = path_buf[0..proc_path.len: 0].ptr;
 
 var argv_arr: [2]?[*:0]const u8 = .{
     path_cstr,
@@ -115,14 +113,10 @@ Running strace on the process confirms that the payload runs from memory.
 
 ```bash
 m3lk0r@ubuntu:~$ strace -f ./rango
-1700 execve("./rango", ["./rango"], 0x7ffd30677308 /* 28 vars
-*/) = 0
-1700 execve("/proc/self/fd/3", ["/proc/self/fd/3"], 
-0x7ffcaf034378 /* 0 vars */) = 0
-1701 execve("/usr/local/bin/hostname", ["hostname", "-I"],
-0x700d9af80038 /* 0 vars */) = -1 ENOENT
-1701 execve("/bin//hostname", ["hostname", "-I"],
-0x700d9af80038 /* 0 vars */) = 0
+1700  execve("./rango", ["./rango"], 0x7ffd30677308 /* 28 vars*/) = 0
+1700  execve("/proc/self/fd/3", ["/proc/self/fd/3"], 0x7ffcaf034378 /* 0 vars */) = 0
+1701  execve("/usr/local/bin/hostname", ["hostname", "-I"],0x700d9af80038 /* 0 vars */) = -1 ENOENT
+1701  execve("/bin//hostname", ["hostname", "-I"],0x700d9af80038 /* 0 vars */) = 0
 1701 +++ exited with 0 +++
 ```
 
