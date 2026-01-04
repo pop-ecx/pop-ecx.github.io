@@ -25,6 +25,9 @@ So this is how I did it.
 The first step was to create a `build.zig` file in the st source directory.
 I started by defining our build function with the necessary parameters:
 
+> The Zig version used in this example is 0.15.1. Other Zig versions could work
+> as well but some adjustments might be needed.
+
 ```zig
 const std = @import("std");
 
