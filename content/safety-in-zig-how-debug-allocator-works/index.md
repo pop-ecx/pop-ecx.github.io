@@ -20,6 +20,8 @@ the debug allocator plays a crucial role in helping avoid some memory safety iss
 1. **Memory Leaks**: The debug allocator detects memory leaks with stack traces, making it easier to identify where memory was allocated but not freed.
 2. **Double Free**: Double frees are also detected, and prints all three traces (allocation, first free, second free).
 
+> You could argue memory leaks are not strictly memory safety issues, but they are a common pitfall in memory management.
+
 #### How Debug allocator detects memory leaks
 Before we dive into how zig does this, let's first get a TL;DR of Zig's detection strategy.
 
