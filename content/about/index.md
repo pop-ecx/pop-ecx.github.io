@@ -10,13 +10,8 @@ This blog is where I share insights, experiments, and lessons learned—whether 
 
 If you’re into efficient code, security research, or just making tools work your way, you’re in the right place.
 
-
 🛠 Languages & Tools: Zig, Lua, Python, YARA, Sigma, Neovim
 
-
 🔍 Topics: Malware analysis, cybersecurity, tooling, reverse engineering
-
-
-Let’s break things (responsibly) and build something better.
 
 > I may occassionally spew some vegan/vegetarian propaganda
