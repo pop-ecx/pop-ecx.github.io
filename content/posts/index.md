@@ -5,6 +5,7 @@ draft: false
 ---
 
 
+- [Safety in Zig: Spatial Memory Safety](../safety-in-zig-spatial-memory-safety/) - *Feb 23, 2026*
 - [Writing Custom Wazuh Rules](../writing-custom-wazuh-rules/) - *Jan 22, 2026*
 - [Safety in Zig: How Debug Allocator Works](../safety-in-zig-how-debug-allocator-works/) - *Jan 6, 2026*
 - [Painless Guide to Linux in-Memory Execution](../painless-guide-to-linux-in-memory-execution/) - *Dec 4, 2025*
