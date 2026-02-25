@@ -82,7 +82,7 @@ You can read more about AIR [here](https://mitchellh.com/zig/sema).
 
 First, we need to compile the code to dump AIR. Run the following:
 
-`./zig-bootstrap/zig/stage3/bin/zig build-obj main.zig`
+`zig build-obj --verbose-air main.zig`
 
 > Make sure to use the debug build of the Zig compiler, as `--verbose-air` is only available for debug build of the compiler.
 
@@ -151,6 +151,11 @@ and `thread 257906 panic: index out of bounds: index 5, len 5` is printed on std
 You can also see it in the disassembly since AIR is lowered to machine code.
 
 ![disassembly](r2-air.png)
+
+Compare that with an equivalent C code compiled without `-fsanitize=address` flag.
+
+![disassembly-c](rc-air2.png)
+
 
 **Isn't this a bad thing? Why does it compile if it is going to crash at runtime?**
 Not really. If the index is known at compile time, it gets caught and
