@@ -5,6 +5,7 @@ draft: false
 ---
 
 
+- [My favorite redpill](../my-fav-redpill) - *Aug 2, 2026*
 - [Zig's new Io](../zig-new-io/) - *Apr 25, 2026*
 - [Safety in Zig: Spatial Memory Safety](../safety-in-zig-spatial-memory-safety/) - *Feb 23, 2026*
 - [Writing Custom Wazuh Rules](../writing-custom-wazuh-rules/) - *Jan 22, 2026*
