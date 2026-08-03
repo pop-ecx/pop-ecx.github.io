@@ -1,0 +1,119 @@
+<link rel=stylesheet href=/css/custom.css><!doctype html><html xmlns=http://www.w3.org/1999/xhtml xml:lang=en-us lang=en-us><head><link href=https://gmpg.org/xfn/11 rel=profile><meta charset=utf-8><meta name=generator content="Hugo 0.111.3"><meta name=viewport content="width=device-width,initial-scale=1"><title>My Favorite Redpill &#183; pop-ecx</title><meta name=description content><link type=text/css rel=stylesheet href=https://pop-ecx.github.io/css/print.css media=print><link type=text/css rel=stylesheet href=https://pop-ecx.github.io/css/poole.css><link type=text/css rel=stylesheet href=https://pop-ecx.github.io/css/syntax.css><link type=text/css rel=stylesheet href=https://pop-ecx.github.io/css/hyde.css><link rel=stylesheet href="https://fonts.googleapis.com/css?family=Abril+Fatface|PT+Sans:400,400i,700"><link rel=apple-touch-icon-precomposed sizes=144x144 href=/apple-touch-icon-144-precomposed.png><link rel="shortcut icon" href=/favicon.png><script src=https://unpkg.com/darkmode-js@1.5.7/lib/darkmode-js.min.js></script>
+<script>function addDarkmodeWidget(){new Darkmode({label:"🌓",saveInCookies:!0,autoMatchOsTheme:!0,bottom:"32px",right:"32px",time:"0.3s",mixColor:"#fff",backgroundColor:"#fff"}).showWidget()}window.addEventListener("load",addDarkmodeWidget)</script></head><body><aside class=sidebar><div class="container sidebar-sticky"><div class=author-image><img src=/images/me.png alt="Author Image" class=author-image></div><div class=sidebar-about><a href=https://pop-ecx.github.io/><h1>pop-ecx</h1></a><p class=lead>Tech musings</p></div><div class=social-links><a href=https://github.com/pop-ecx target=_blank rel="noopener noreferrer"><img src=https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/github.svg width=24 height=24 alt=GitHub></a>
+<a href=https://keybase.io/oliver_m target=_blank rel="noopener noreferrer"><img src=https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/keybase.svg width=24 height=24 alt=Keybase></a>
+<a href=https://bsky.app/profile/pop-ecx.bsky.social target=_blank rel="noopener noreferrer"><img src=https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/bluesky.svg width=24 height=24 alt=Bluesky></a>
+<a href=https://www.linkedin.com/in/oliver-mulwa target=_blank rel="noopener noreferrer"><img src=https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg width=24 height=24 alt=LinkedIn></a></div><nav><ul class=sidebar-nav><li><a href=https://pop-ecx.github.io/>Home</a></li><li><a href=/posts/>Posts</a></li><li><a href=/about/>About</a></li></ul></nav><p>&copy; 2026. All rights reserved.</p></div></aside><main class="content container"><div class=post><h1>My Favorite Redpill</h1><time datetime=2026-08-02T21:21:57+0300 class=post-date>Sun, Aug 2, 2026</time><blockquote><p>No! Not the silly manospohere stuff.</p></blockquote><p>Redpills; techniques in which software (specifically malware) can detect whether
+they are running in some sort of virtualized environment, sandbox or debugger.
+It&rsquo;s mostly used by malware authors to make life for us analysts a little
+bit harder. The name is an ode to the movie <em>The Matrix</em>, and a pretty great one
+at that.</p><p>There are a few techniques that can be used here including checking for the
+presence of certain processes, files, or registry keys that are commonly
+associated with virtual machines or sandboxes. These are relatively uninteresting
+to me. Instead I will talk about some of my favorite ones, concluding with probably
+my most favorite one.</p><h3 id=sandbox-detection-via-cpuid>Sandbox detection via cpuid</h3><p>The <code>cpuid</code> instruction is an x86 instruction that allows software to determine
+the details of the processor. These details may include things like MMX/SSE.</p><p>Let&rsquo;s take a look at the following code snippet:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-zig data-lang=zig><span style=display:flex><span><span style=color:#66d9ef>fn</span> isVm () <span style=color:#66d9ef>bool</span> {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>var</span> eax<span style=color:#f92672>:</span> <span style=color:#66d9ef>u32</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>0x40000000</span>;
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>var</span> ebx<span style=color:#f92672>:</span> <span style=color:#66d9ef>u32</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>;
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>var</span> ecx<span style=color:#f92672>:</span> <span style=color:#66d9ef>u32</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>;
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>var</span> edx<span style=color:#f92672>:</span> <span style=color:#66d9ef>u32</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>asm</span> <span style=color:#66d9ef>volatile</span> (
+</span></span><span style=display:flex><span>        <span style=color:#e6db74>\\cpuid</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>:</span> [eax_out] <span style=color:#e6db74>&#34;={eax}&#34;</span> (eax),
+</span></span><span style=display:flex><span>          [ebx_out] <span style=color:#e6db74>&#34;={ebx}&#34;</span> (ebx),
+</span></span><span style=display:flex><span>          [ecx_out] <span style=color:#e6db74>&#34;={ecx}&#34;</span> (ecx),
+</span></span><span style=display:flex><span>          [edx_out] <span style=color:#e6db74>&#34;={edx}&#34;</span> (edx)
+</span></span><span style=display:flex><span>        <span style=color:#f92672>:</span> [eax_in] <span style=color:#e6db74>&#34;{eax}&#34;</span> (@as(<span style=color:#66d9ef>u32</span>, <span style=color:#ae81ff>0x40000000</span>)),
+</span></span><span style=display:flex><span>          [ecx_in] <span style=color:#e6db74>&#34;{ecx}&#34;</span> (@as(<span style=color:#66d9ef>u32</span>, <span style=color:#ae81ff>0</span>))
+</span></span><span style=display:flex><span>    );
+</span></span><span style=display:flex><span>    std.debug.print(<span style=color:#e6db74>&#34;CPUID 0x40000000: eax={x}, ebx={x}, ecx={x}, edx={x}</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>, .{eax, ebx, ecx, edx});
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> eax <span style=color:#f92672>!=</span> <span style=color:#ae81ff>0</span>;
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>The code is direct. We set eax to 0x40000000 to
+check the maximum hypervisor leaf number and vendor signature. We set the
+remaining registers; ebx, ecx and edx to 0.</p><p>If the code runs in a sandbox, it will return vendor signature in the registers,
+else they&rsquo;ll just be 0.</p><p>Running this in a bare metal environment will return the following:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-powershell data-lang=powershell><span style=display:flex><span>C:\Users\test\&gt;CPUID 0x40000000<span style=color:#960050;background-color:#1e0010>:</span> eax=<span style=color:#ae81ff>0</span>, ebx=o0, ecx=<span style=color:#ae81ff>0</span>, edx=<span style=color:#ae81ff>0</span>
+</span></span></code></pre></div><p>and running it in a sandbox will return something like this:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-powershell data-lang=powershell><span style=display:flex><span>C:\Users\test\&gt;CPUID 0x40000000<span style=color:#960050;background-color:#1e0010>:</span> eax=0x40000006, ebx=786f4256, ecx=786f4256, edx=786f4256
+</span></span></code></pre></div><p>0x40000006 is non-zero and means it supports hypervisor leaves up to 0x40000006.
+eax, ebx, ecx and edx show ascii values which decode to VBox (remeber endianness?)</p><p>But what if these value can be changed? These cpuid values can be changed at the
+VirtualBox configuration level(pretty sure other vendors provide these functionalities too)
+So, how do we try to make life harder for the analyst?</p><h3 id=timing-techniques>Timing techniques</h3><p>The idea here is direct; since some instructions have overhead when run in a vm,
+we can use timing techniques to determine whether we&rsquo;re in a vm.
+The first thing we need to find is a timing source. Luckily the x86
+provides an instruction to do timing; <code>RDTSC</code>.</p><p>This means we can essentially do something like this:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c data-lang=c><span style=display:flex><span>start <span style=color:#f92672>=</span> RDTSC
+</span></span><span style=display:flex><span><span style=color:#66d9ef>do</span> some <span style=color:#a6e22e>work</span> (CPUID <span style=color:#f92672>+</span> some other instructions) ...
+</span></span><span style=display:flex><span>end <span style=color:#f92672>=</span> RDTSC
+</span></span><span style=display:flex><span><span style=color:#66d9ef>if</span> (end <span style=color:#f92672>-</span> start <span style=color:#f92672>&gt;</span> threshold)
+</span></span><span style=display:flex><span>	hypervisor detected
+</span></span></code></pre></div><p>The actual code would look like:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-zig data-lang=zig><span style=display:flex><span><span style=color:#66d9ef>pub</span> <span style=color:#66d9ef>fn</span> main() <span style=color:#f92672>!</span><span style=color:#66d9ef>void</span> {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>for</span> (<span style=color:#ae81ff>0</span>..<span style=color:#ae81ff>1000</span>) <span style=color:#f92672>|</span>_<span style=color:#f92672>|</span> {
+</span></span><span style=display:flex><span>        workload();
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>var</span> total<span style=color:#f92672>:</span> <span style=color:#66d9ef>u64</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>for</span> (<span style=color:#ae81ff>0</span>..<span style=color:#ae81ff>10000</span>) <span style=color:#f92672>|</span>_<span style=color:#f92672>|</span> {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>const</span> start <span style=color:#f92672>=</span> rdtscStart();
+</span></span><span style=display:flex><span>        workload();
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>const</span> end <span style=color:#f92672>=</span> rdtscEnd();
+</span></span><span style=display:flex><span>        total <span style=color:#f92672>+=</span> end <span style=color:#f92672>-</span> start;
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    std.debug.print(<span style=color:#e6db74>&#34;Average cycles: {}</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>, .{total <span style=color:#f92672>/</span> <span style=color:#ae81ff>10000</span>});
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>Where <code>rdtscStart</code> is:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-zig data-lang=zig><span style=display:flex><span>    <span style=color:#66d9ef>asm</span> <span style=color:#66d9ef>volatile</span> (
+</span></span><span style=display:flex><span>        <span style=color:#e6db74>\\lfence</span>
+</span></span><span style=display:flex><span>        <span style=color:#e6db74>\\rdtsc</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>:</span> [lo] <span style=color:#e6db74>&#34;={eax}&#34;</span> (eax),
+</span></span><span style=display:flex><span>          [hi] <span style=color:#e6db74>&#34;={edx}&#34;</span> (edx),
+</span></span><span style=display:flex><span>    );
+</span></span></code></pre></div><p>and <code>rdtscEnd</code>:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-zig data-lang=zig><span style=display:flex><span>    <span style=color:#66d9ef>asm</span> <span style=color:#66d9ef>volatile</span> (
+</span></span><span style=display:flex><span>        <span style=color:#e6db74>\\rdtscp</span>
+</span></span><span style=display:flex><span>        <span style=color:#e6db74>\\lfence</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>:</span> [lo] <span style=color:#e6db74>&#34;={eax}&#34;</span> (eax),
+</span></span><span style=display:flex><span>          [aux] <span style=color:#e6db74>&#34;={ecx}&#34;</span> (ecx),
+</span></span><span style=display:flex><span>          [hi] <span style=color:#e6db74>&#34;={edx}&#34;</span> (edx),
+</span></span><span style=display:flex><span>    );
+</span></span></code></pre></div><p>and <code>workload</code> is:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-zig data-lang=zig><span style=display:flex><span>    <span style=color:#66d9ef>asm</span> <span style=color:#66d9ef>volatile</span> (
+</span></span><span style=display:flex><span>        <span style=color:#e6db74>\\cpuid</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>:</span> [eax] <span style=color:#e6db74>&#34;={eax}&#34;</span> (eax),
+</span></span><span style=display:flex><span>          [ebx] <span style=color:#e6db74>&#34;={ebx}&#34;</span> (ebx),
+</span></span><span style=display:flex><span>          [ecx] <span style=color:#e6db74>&#34;={ecx}&#34;</span> (ecx),
+</span></span><span style=display:flex><span>          [edx] <span style=color:#e6db74>&#34;={edx}&#34;</span> (edx)
+</span></span><span style=display:flex><span>        <span style=color:#f92672>:</span> [leaf] <span style=color:#e6db74>&#34;{eax}&#34;</span> (eax)
+</span></span><span style=display:flex><span>    );
+</span></span></code></pre></div><p>Running this in bare metal systems gives an average of ~400 cycles, while a vm
+gives ~2700 (at least in my case). These timing differences can be pretty telling
+as to whether we&rsquo;re in a vm or not.</p><h3 id=the-problem-with-rdtsc>The problem with rdtsc</h3><p><code>rdtsc</code> can be intercepted and altered when returned causing incorrect readings.</p><h3 id=my-favorite-redpill>My favorite redpill</h3><blockquote><p>I learned this technique from one of my favorite <a href="https://www.youtube.com/watch?v=_M9SBzSKhsk">Blackhat talks</a> by Daniele Cono D&rsquo;elia</p></blockquote><p>Instead of using rdtsc, we can use a counter thread, making it hard to be trapped
+and altered. We can spin up a background thread that just increments an atomic
+counter as fast as possible. Reading that counter acts as a clock. As an addition to this,
+we can combine running a computationally &ldquo;expensive&rdquo; instruction like cpuid with
+a cheap one like <code>nop</code> and get the ratios of the two. The idea is that ratios are
+harder to fake.</p><p>So we&rsquo;d have something like this:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-zig data-lang=zig><span style=display:flex><span><span style=color:#66d9ef>pub</span> <span style=color:#66d9ef>fn</span> main() <span style=color:#f92672>!</span><span style=color:#66d9ef>void</span> {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>var</span> clock <span style=color:#f92672>=</span> CovertClock{};
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>try</span> clock.start();
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>defer</span> clock.stop();
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>const</span> samples<span style=color:#f92672>:</span> <span style=color:#66d9ef>u64</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>10000</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>const</span> rounds <span style=color:#f92672>=</span> <span style=color:#ae81ff>5</span>;
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>var</span> cpuid_total<span style=color:#f92672>:</span> <span style=color:#66d9ef>u64</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>;
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>var</span> nop_total<span style=color:#f92672>:</span> <span style=color:#66d9ef>u64</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>;
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>for</span> (<span style=color:#ae81ff>0</span>..rounds) <span style=color:#f92672>|</span>_<span style=color:#f92672>|</span> {
+</span></span><span style=display:flex><span>        cpuid_total <span style=color:#f92672>+=</span> meanTicks(<span style=color:#f92672>&amp;</span>clock, cpuidOp, samples <span style=color:#f92672>/</span> rounds);
+</span></span><span style=display:flex><span>        nop_total <span style=color:#f92672>+=</span> meanTicks(<span style=color:#f92672>&amp;</span>clock, nopOp, samples <span style=color:#f92672>/</span> rounds);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>const</span> cpuid_avg <span style=color:#f92672>=</span> cpuid_total <span style=color:#f92672>/</span> rounds;
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>const</span> cpuid_avg_f<span style=color:#f92672>:</span> <span style=color:#66d9ef>f64</span> <span style=color:#f92672>=</span> @floatFromInt(cpuid_avg);
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>const</span> nop_avg_raw <span style=color:#f92672>=</span> nop_total <span style=color:#f92672>/</span> rounds;
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>const</span> nop_batch_avg_f<span style=color:#f92672>:</span> <span style=color:#66d9ef>f64</span> <span style=color:#f92672>=</span> @floatFromInt(nop_avg_raw);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>const</span> nop_avg <span style=color:#f92672>=</span> @max(nop_avg_raw <span style=color:#f92672>/</span> NOP_BATCH, <span style=color:#ae81ff>1</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>const</span> ratio<span style=color:#f92672>:</span> <span style=color:#66d9ef>f64</span> <span style=color:#f92672>=</span> (cpuid_avg_f <span style=color:#f92672>*</span> @as(<span style=color:#66d9ef>f64</span>, @floatFromInt(NOP_BATCH))) <span style=color:#f92672>/</span> nop_batch_avg_f;
+</span></span><span style=display:flex><span>    std.debug.print(<span style=color:#e6db74>&#34;cpuid: {} ticks (avg)</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>, .{cpuid_avg});
+</span></span><span style=display:flex><span>    std.debug.print(<span style=color:#e6db74>&#34;nop raw (per {}-batch): {}</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>, .{ NOP_BATCH, nop_avg_raw });
+</span></span><span style=display:flex><span>    std.debug.print(<span style=color:#e6db74>&#34;nop:   {} ticks (avg)</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>, .{nop_avg});
+</span></span><span style=display:flex><span>    std.debug.print(<span style=color:#e6db74>&#34;ratio: {d:.2}</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>, .{ratio});
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>Running this results in a ratio of ~500 on bare metal and ~5000 for vm.</p><p>So yeah, my favorite redpill comes from a blackhat talk that I think should get more love.</p></div></main></body></html>
