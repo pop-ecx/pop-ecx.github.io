@@ -7,7 +7,7 @@ keywords: ["Cybersecurity", "Redpill", "Anti-vm"]
 draft: false
 ---
 
-> No! Not the silly [manospohere](https://en.wikipedia.org/wiki/Manosphere) stuff.
+> No! Not the silly [manosphere](https://en.wikipedia.org/wiki/Manosphere) stuff.
 
 Redpills; techniques in which software (specifically malware) can detect whether
 they are running in some sort of virtualized environment, sandbox or debugger.
