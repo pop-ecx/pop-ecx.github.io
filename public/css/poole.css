@@ -307,6 +307,15 @@ tbody tr:nth-child(odd) th {
   margin-bottom: 4em;
 }
 
+.post {
+  padding-bottom: 2rem;
+  border-bottom: 1px solid #eee;
+}
+
+.post:last-child {
+  border-bottom: none;
+}
+
 /* Blog post or page title */
 .page-title,
 .post-title,
@@ -350,6 +359,7 @@ tbody tr:nth-child(odd) th {
 .related-posts li a:hover small {
   color: inherit;
 }
+
 
 
 /*
@@ -402,3 +412,4 @@ a.pagination-item:hover {
     border-bottom-right-radius: 4px;
   }
 }
+

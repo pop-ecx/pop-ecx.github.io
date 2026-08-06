@@ -4,6 +4,7 @@ date: 2025-02-24T13:15:42+03:00
 draft: false
 ---
 
+<!--more-->
 
 - [My favorite redpill](../my-fav-redpill) - *Aug 2, 2026*
 - [Zig's new Io](../zig-new-io/) - *Apr 25, 2026*

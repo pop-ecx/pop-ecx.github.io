@@ -8,7 +8,9 @@ draft: false
 ---
 
 In-memory execution, a technique that allows programs to be run directly from 
-memory without being written to disk. Over the past few weeks, I've been attempting
+memory without being written to disk. 
+<!--more-->
+Over the past few weeks, I've been attempting
 to learn and understand this concept better. In a previous [post](https://pop-ecx.github.io/pack-to-the-futureobfuscating-my-c2-agent/),
 I explained my reasoning behind choosing ZYRA for obfuscation and packing. The 
 key reason behind I could take it to whichever direction I wanted, should

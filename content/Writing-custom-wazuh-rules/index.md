@@ -13,6 +13,7 @@ ones being; its customizability and its open-source nature. This article will be
 more or less a tutorial on how to write a simple custom wazuh rule to detect potential
 port scans on a monitored host.
 
+<!--more-->
 The setup is as follows:
 
 - Wazuh manager (4.14.1) running on a Linux VM.

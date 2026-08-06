@@ -17,6 +17,8 @@ Quick recap:
 - The code executed base64 encoded command with window style hidden option.
 - The command downloaded a `data.zip` file.
 
+<!--more-->
+
 Now, the zip file is extracted, an exe is sought inside the contents and executed.
 Here is the code responsible for that: ![extract](extract-run.png)
 

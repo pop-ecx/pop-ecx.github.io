@@ -8,12 +8,12 @@ draft: false
 ---
 
 ![I think I get it now](I-do.jpg)
-*I think I get it now*
 
 In version 0.15.1, Zig [removed](https://ziglang.org/download/0.15.1/release-notes.html#async-and-await-keywords-removed)
 the `async` and `await` keywords, anticipating to rework and bring them back
 as part of a new Io interface. That was pretty exciting, but I didn't get how
 it would fully work until I got to try it out in version 0.16.0.
+<!--more-->
 
 The context of this blog is set around the workings of a simple port scanner.
 I will not go deep into how a port scanner works, but basically it tries to connect

@@ -7,11 +7,9 @@ keywords: ["yara", "parser", "treesitter", "ziglang"]
 draft: false
 ---
 
-
-
 It's been a while since I wrote yara rules. In fact, the last time I did, I was still using vscode. I needed now to write one. So I chose to 
 look at one of my local yara rules repo. Opened it in nvim and ... no syntax highlighting.
-
+<!--more-->
 ![dramatic reconstruction](eyes-burning.gif)
 
 Easy fix though. Treesitter is what provides highlighting for my setup, so I did `:TSInstall yara`. Damn!! No yara parser. That meant I had to write

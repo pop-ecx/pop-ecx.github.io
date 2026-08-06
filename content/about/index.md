@@ -4,6 +4,8 @@ date: 2025-02-24T19:35:33+03:00
 draft: false
 ---
 
+<!--more-->
+
 Hey, I'm Ollie—a cybersecurity pro and dev diving deep into Zig, Lua, and Neovim. I tinker with low-level programming, build custom tooling, and explore malware analysis.
 
 This blog is where I share insights, experiments, and lessons learned—whether it’s writing an LSP, reverse-engineering binaries, or customizing Neovim for cybersecurity workflows.

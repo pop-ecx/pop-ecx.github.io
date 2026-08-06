@@ -8,14 +8,12 @@ draft: false
 ---
 
 
-
-
-
-
 A while ago (around 7 months ago), I had obtained, through a friend, a sample of clearfake malware that was wrecking
 havoc in one of his friend's servers.
 
 This post is about analysis I had done. I have been procrastinating a lot on writing it, so here it goes...
+
+<!--more-->
 
 Below is a screenshot of the infection method it uses, a notification to update your browser by
 running some powershell.

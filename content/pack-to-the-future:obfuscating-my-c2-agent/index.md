@@ -1,5 +1,5 @@
 ---
-title: "Pack to the Future:obfuscating My C2 Agent"
+title: "Pack to the Future: Obfuscating My C2 Agent"
 date: 2025-09-09T12:56:16+03:00
 tags: ["ziglang", "packer", "C2", "obfuscation"]
 categories: ["custom tooling", "ziglang", "packing", "cybersecurity"]
@@ -11,6 +11,8 @@ This is a follow up on my previous [article](https://pop-ecx.github.io/reflectio
 It is generally about my journey in searching for a relatively unknown and easy to understand packer to obfuscate my custom zig C2 agent.
 If you are generally looking for a tutorial on how to pack binaries, this is not it. I will not go into the details of how packers work, 
 but rather share what led me to the final solution.
+
+<!--more-->
 
 ## Why pack?
 If you've ever written any lower level code, you must've noticed that the resulting binaries have stuff in them that you explicitly didn't put there,

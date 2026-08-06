@@ -17,6 +17,8 @@ finding the correct configuration to achieve this using
 Neovim. Perhaps you are, right now, on the same path as 
 myself last year. Luckily for you, I gotchu.
 
+<!--more-->
+
 Before proceeding, make sure you have a snyk account and 
 activate snyk code.
 

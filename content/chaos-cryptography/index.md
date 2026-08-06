@@ -7,9 +7,10 @@ keywords: ["chaos theory", "chaos cryptography", "dynamical systems"]
 draft: false
 ---
 
-![hero](hero.jpg)
-
 > This article was originally published on section.io, May 2022
+
+<!--more-->
+![hero](hero.jpg)
 
 
 Chaos theory is a branch of mathematics that deals with studying non-linear dynamical systems that exhibit sensitivity to initial conditions. Chaotic conditions exist in nature. A decent and typical example of such is the weather. 

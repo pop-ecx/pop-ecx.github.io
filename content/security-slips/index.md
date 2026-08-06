@@ -14,6 +14,8 @@ how a sneaky phishing lure got hold of his mailing list. This interesting read m
 reminisce about how, not so long ago, I almost fell for a similar thing, albeit mine was
 not so sophisticated.
 
+<!--more-->
+
 January 2nd 2025, 12 p.m EAT, I had just gotten home from a lengthy holiday. Being super
 tired I booted up my Latitude to check on a few things. One of the first things I saw was a 
 github link sent in one of the many cybersecurity pages I follow. It was allegedly a tool

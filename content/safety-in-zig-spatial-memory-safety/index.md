@@ -13,6 +13,8 @@ it prevents out-of-bounds access to arrays etc.
 
 We'll take a look at 2 simple examples to see how this works in practice.
 
+<!--more-->
+
 ### Example 1: Compile time known values
 
 ```zig
@@ -87,7 +89,7 @@ First, we need to compile the code to dump AIR. Run the following:
 > Make sure to use the debug build of the Zig compiler, as `--verbose-air` is only available for debug build of the compiler.
 
 The AIR produced is some ~220000 lines, so we will just look at main.
-```txt
+```txt go {hl_lines=["35-49"]}
 # Begin Function AIR: main.main:
 # Total AIR+Liveness bytes: 771B
 # AIR Instructions:         35 (315B)

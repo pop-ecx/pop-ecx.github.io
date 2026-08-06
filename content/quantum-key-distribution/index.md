@@ -7,13 +7,13 @@ keywords: ["quantum key distribution", "quantum cryptography", "quantum computin
 draft: false
 ---
 
-![hero](hero.jpg)
-
 > This article was originally published on section.io, February 2022
+
+<!--more-->
+![hero](hero.jpg)
 
 
 Quantum key distribution (QKD) is an advanced sub-disciplines of quantum information technology. It aims at coming up with novel and sophisticated methods of securely exchanging cryptographic keys by use of basic quantum mechanical concepts such as entanglement and measurement.
-<!--more-->
 Since the 1970s, with the advent of [quantum cryptography](/engineering-education/quantum-cryptography/), researchers and academics have proposed a handful of quantum key distribution protocols. The earliest of such was proposed in 1984.
 
 ### Table of contents

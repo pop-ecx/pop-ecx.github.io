@@ -5,6 +5,7 @@ draft: false
 ---
 > *Originally written Thu, Jun 15, 2023*
 
+<!--more-->
 
 ![Photo by Dana Critchlow on Unsplash](https://pop-ecx.github.io/purplefox-analysis/images/dana-critchlow-BO5BswJwguI-unsplash.resized.resized.jpg)
 

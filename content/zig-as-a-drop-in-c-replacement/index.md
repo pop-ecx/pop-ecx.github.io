@@ -12,7 +12,9 @@ language. I always knew Zig could interoperate with C, as I had earlier written
 a yara rules parser using treesitter and Zig. 
 
 Now I wanted to test my neofetch-like program in various environments, and one 
-of those was st. St is a simple terminal emulator, part of the suckless
+of those was `st`.
+<!--more-->
+St is a simple terminal emulator, part of the suckless
 tools. It is written in C, minimalistic and I generally liked using it.
 
 So, st uses a Makefile for building. In this case, I wanted to see if I could

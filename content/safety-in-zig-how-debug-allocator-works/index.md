@@ -9,6 +9,7 @@ draft: false
 
 Zig is not a memory-safe language. It, however, provides some tools to help avoid
 some memory safety issues. One of the key tools that help achieve this is the debug allocator.
+<!--more-->
 The debug allocator is a special memory allocator that tracks memory allocations and deallocations,
 helping identify memory leaks and other memory-related issues during development.
 

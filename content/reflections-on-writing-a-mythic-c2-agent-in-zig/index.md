@@ -14,6 +14,8 @@ Over the past couple of months, I've been writing a mythic C2 implant in zig.
 "Why?", you ask. Well, it's all part of my learning process. I also 
 wanted to understand how C2 frameworks work and how zig can be used for offensive tooling. 
 
+<!--more-->
+
 There are lots of C2 frameworks out there and each has its own quirks and uniqueness.
 I happened to settle on Mythic. Mythic supports agents written in any language. This helps me
 improve my zig skills. Plus, the documentation is great.

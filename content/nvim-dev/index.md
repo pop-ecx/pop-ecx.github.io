@@ -4,10 +4,10 @@ date: 2025-03-17T11:27:33+03:00
 draft: false
 ---
 
-
-
 Here is a quick list of my Neovim setup for dev work.
 This includes plugins, LSPs and some handy keymaps.
+
+<!--more-->
 
 ## Plugins
 1. [Telescope](https://github.com/nvim-telescope/telescope.nvim) - Fuzzy find files quickly. No need for filetree with this one.
