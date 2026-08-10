@@ -6,6 +6,7 @@ draft: false
 
 <!--more-->
 
+- [Guardrails, Dual Use, and the ethics of AI Bans](../guardrails-dual-use-ai-bans) - *Aug 10, 2026*
 - [My favorite redpill](../my-fav-redpill) - *Aug 2, 2026*
 - [Zig's new Io](../zig-new-io/) - *Apr 25, 2026*
 - [Safety in Zig: Spatial Memory Safety](../safety-in-zig-spatial-memory-safety/) - *Feb 23, 2026*
