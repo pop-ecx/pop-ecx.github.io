@@ -57,7 +57,7 @@ finish line first or at the very least who gets closest to it first.
 
 ### King of the Hill
 [TryHackMe](https://tryhackme.com/) has an interesting game called [king of the hill](https://tryhackme.com/resources/blog/guide-to-king-of-the-hill).
-The idea of this game is simple; race other 9 hackers to compromise a system.
+The idea of this game is simple; race other ~~9~~ 10 hackers to compromise a system.
 Get in, patch so the others do not get in, and maintain persistence while looking
 for other flags hidden inside. This, at the core, is what offensive security really 
 is about in the real world. Same idea, same concept; a race between the "good guys"
